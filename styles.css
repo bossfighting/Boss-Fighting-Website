@@ -1,0 +1,311 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #2ecc71;
+    --text-color: #333;
+    --background-color: #f0f8ff;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header styles */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 3rem 2rem;
+    position: relative;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+nav h1 {
+    font-size: 3rem;
+    flex-grow: 1;
+    text-align: left;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.changing-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    animation: changeText 10s infinite linear, fadeInFromRight 1s ease-in-out;
+}
+
+@keyframes changeText {
+    0% {
+        content: "Join the Boss Fighting Community!";
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    25% {
+        content: "Become a Boss Slayer!";
+        opacity: 1;
+        transform: translateX(0);
+    }
+    35% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    50% {
+        content: "Conquer the Minecraft Bosses!";
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    75% {
+        content: "Experience Epic Boss Battles!";
+        opacity: 1;
+        transform: translateX(0);
+    }
+    85% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    100% {
+        content: "Join the Boss Fighting Community!";
+        opacity: 0;
+        transform: translateX(50%);
+    }
+}
+
+.add-bot-button .button {
+    font-size: 1.5rem;
+    padding: 1.2rem 2.4rem;
+}
+
+/* Menu styles */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 2rem;
+    left: 22rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    background-color: #fff;
+    margin: 1px 0;
+    transition: 0.9s;
+}
+
+.sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #34495e;
+    transition: left 0.4s ease;
+    z-index: 999;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar ul {
+    padding-top: 60px;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Content section styles */
+.content-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Button styles */
+.button {
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-primary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.button-primary:hover {
+    background-color: #2980b9;
+}
+
+.button-secondary {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.button-secondary:hover {
+    background-color: #27ae60;
+}
+
+.add-bot-button {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Additional styles */
+.click-here-link {
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.click-here-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        flex-grow: 0;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .changing-text {
+        font-size: 1.8rem;
+    }
+
+    .add-bot-button .button {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+    }
+
+    .content-section {
+        padding: 3rem 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}
