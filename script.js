@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginButton = document.getElementById('login-button');
     const adminPanel = document.getElementById('admin-panel');
     const commandForm = document.getElementById('new-command-form');
+    const loadingSpinner = document.createElement('div'); // Create a loading spinner element
+    
+    // Loading spinner styles
+    loadingSpinner.classList.add('loading'); // Add loading class
+    loadingSpinner.innerHTML = '<div class="loading-spinner"></div>'; // Create spinner element
+    document.body.appendChild(loadingSpinner); // Append to the body
+    loadingSpinner.style.display = 'none'; // Initially hide the spinner
     
     // Text that changes at the top of the page
     const textArray = [
@@ -47,8 +54,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Always "accept" the password and log them in
         if (password) {
-            adminPanel.style.display = "block";
-            loginButton.style.display = "none";
+            loadingSpinner.style.display = 'flex'; // Show the loading spinner
+            
+            // Simulate loading time (you can adjust this duration)
+            setTimeout(() => {
+                adminPanel.style.display = "block";
+                loadingSpinner.style.display = 'none'; // Hide the loading spinner
+                loginButton.style.display = "none";
+            }, 1000); // 1 second loading time
         }
     });
 

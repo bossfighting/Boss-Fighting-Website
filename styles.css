@@ -24,6 +24,58 @@ body {
   min-height: 100vh;
 }
 
+/* Loading screen styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-content h1 {
+  font-family: 'Minecraft', sans-serif;
+  color: var(--primary);
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--primary);
+  border-top: 6px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+.loading-content p {
+  font-family: 'Minecraft', sans-serif;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
 /* Sidebar styles */
 .sidebar {
   width: 250px;
@@ -55,7 +107,7 @@ body {
   color: var(--text);
   text-decoration: none;
   font-size: 1.2rem;
-  transition: color 0.3s ease;
+  transition: color 1.0s ease;
 }
 
 .sidebar ul li a:hover {
@@ -146,42 +198,6 @@ h2 {
   background-color: var(--secondary);
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background-color: var(--secondary);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px var(--shadow);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  image-rendering: pixelated;
-}
-
-.card-content {
-  padding: 15px;
-}
-
-.card-title {
-  font-family: 'Minecraft', sans-serif;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: var(--primary);
-}
-
 .changing-text {
   font-family: 'Minecraft', sans-serif;
   font-size: 2rem;
@@ -201,53 +217,7 @@ h2 {
   animation: fadeInOut 5s infinite;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-  
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: static;
-  }
-  
-  .main-content {
-    margin-left: 0;
-  }
-  
-  .button {
-    display: block;
-    width: 100%;
-  }
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border: 3px solid var(--background);
-  border-radius: 6px;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
+/* Login section styles */
 .login-section {
     margin-top: 20px;
     text-align: center;
@@ -284,4 +254,51 @@ h2 {
 
 #new-command-form textarea {
     height: 100px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 3px solid var(--background);
+  border-radius: 6px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .button {
+    display: block;
+    width: 100%;
+  }
 }
