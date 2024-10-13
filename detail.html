@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Boss Fighting - Details</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="menu-toggle" id="menu-toggle">
@@ -43,7 +42,7 @@
         <div class="command-details">
             <div class="command-info">
                 <h3>+advance</h3>
-                <p>The +advance command allows you to progress through the different levels of your weapons, armour and potions. By advancing, you can increase the strength of your items to make them more useful.<br>
+                <p>The +advance command allows you to progress through the different levels of your weapons, armor, and potions. By advancing, you can increase the strength of your items to make them more useful.<br>
                     <a href="detail2.html" class="click-here-link">Click Here</a> to get a detailed explanation about the items present</p>
             </div>
             <div class="command-info">
@@ -57,6 +56,20 @@
         <h2>Contact</h2>
         <div class="join-button">
             <a href="#" id="join-link" class="button button-secondary">Join Discord Server</a>
+        </div>
+        <!-- Admin Login Button -->
+        <div class="login-section">
+            <button id="login-button" class="button button-primary">Admin Login</button>
+            <div id="admin-panel" style="display: none;">
+                <h3>Admin Panel</h3>
+                <form id="new-command-form">
+                    <label for="command-name">Command Name:</label>
+                    <input type="text" id="command-name" required><br>
+                    <label for="command-description">Description:</label>
+                    <textarea id="command-description" required></textarea><br>
+                    <button type="submit" class="button button-secondary">Add Command</button>
+                </form>
+            </div>
         </div>
     </footer>
 

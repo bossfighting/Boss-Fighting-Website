@@ -247,3 +247,41 @@ h2 {
 .fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
+
+.login-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#admin-panel {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(74, 143, 28, 0.2);
+    border-radius: 10px;
+}
+
+#admin-panel h3 {
+    font-family: 'Minecraft', sans-serif;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+#new-command-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#new-command-form input, #new-command-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--primary);
+    background-color: var(--background);
+    color: var(--text);
+}
+
+#new-command-form textarea {
+    height: 100px;
+}

@@ -3,7 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const sidebarLinks = document.querySelectorAll('.sidebar a');
     const changingTextElement = document.querySelector('.changing-text span');
+    const loginButton = document.getElementById('login-button');
+    const adminPanel = document.getElementById('admin-panel');
+    const commandForm = document.getElementById('new-command-form');
     
+    // Text that changes at the top of the page
     const textArray = [
         "Join the Boss Fighting Community!",
         "Become a Boss Slayer!",
@@ -16,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebar.classList.toggle('active');
     });
 
-    // Close menu when clicking a link
     sidebarLinks.forEach(link => {
         link.addEventListener('click', function() {
             sidebar.classList.remove('active');
@@ -35,10 +38,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 
-    // Initial text change
     changeText();
-    // Set interval for text change
     setInterval(changeText, 5000);
+
+    // Admin Login (accepts any password)
+    loginButton.addEventListener('click', function() {
+        const password = prompt("Enter Admin Password:");
+        
+        // Always "accept" the password and log them in
+        if (password) {
+            adminPanel.style.display = "block";
+            loginButton.style.display = "none";
+        }
+    });
+
+    // Show trick message when form is submitted
+    commandForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show alert trick message
+        alert("You got tricked lol");
+
+        // Ask if they want to add the bot to their server
+        if (confirm("Would you like to add our fun discord bot to your server?")) {
+            // Redirect to Discord authorization link
+            window.location.href = "https://discord.com/oauth2/authorize?client_id=1288503796321751080&scope=bot%20applications.commands&permissions=110016";
+        }
+    });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
