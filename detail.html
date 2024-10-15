@@ -3,75 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Boss Fighting - Details</title>
+    <title>Boss Fighting - About Commands</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="sidebar" id="sidebar">
+    <div id="menu-toggle" class="menu-toggle"></div>
+
+    <div id="sidebar" class="sidebar">
         <ul>
             <li><a href="index.html#introduction">Introduction</a></li>
             <li><a href="index.html#fight-bosses">Fight Bosses</a></li>
             <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="detail.html" class="detail-link" title="Learn more about commands">About Commands</a></li>
-            <li><a href="detail2.html" class="detail-link" title="Detailed Item Info">Detailed Game Info</a></li>
+            <li><a href="detail.html" class="detail-link">About Commands</a></li>
+            <li><a href="detail2.html" class="detail-link">Detailed Game Info</a></li>
         </ul>
     </div>
 
-    <header>
-        <nav>
-            <h1>Boss Fighting</h1>
-        </nav>
-        <div class="changing-text">
-            <span>Explore the Boss Fighting Commands</span>
-        </div>
+    <div class="main-content">
+        <h1>Boss Fighting</h1>
+
+        <div class="changing-text">Explore the Boss Fighting Commands</div>
+
         <div class="add-bot-button">
             <a href="https://discord.com/oauth2/authorize?client_id=1288503796321751080&scope=bot%20applications.commands&permissions=110016" id="add-bot-link" class="button button-primary">Add the Bot</a>
         </div>
-    </header>
 
-    <section class="content-section">
-        <h2>About the Commands</h2>
-        <p>Here you will find detailed information about the two main commands in the Boss Fighting bot:</p>
-        
-        <div class="command-details">
-            <div class="command-info">
-                <h3>+advance</h3>
-                <p>The +advance command allows you to progress through the different levels of your weapons, armor, and potions. By advancing, you can increase the strength of your items to make them more useful.<br>
-                    <a href="detail2.html" class="click-here-link">Click Here</a> to get a detailed explanation about the items present</p>
-            </div>
-            <div class="command-info">
-                <h3>+fight</h3>
-                <p>The +fight command is used to initiate a boss battle. During the battle, you can use your sword, wear armor, and consume potions to help you defeat the boss.</p>
+        <div class="section content-section">
+            <h2>About the Commands</h2>
+            <p>Here you will find detailed information about the two main commands in the Boss Fighting bot:</p>
+            <div class="command-details">
+                <div class="command-info">
+                    <h3>+advance</h3>
+                    <p>The +advance command allows you to progress through the different levels of your weapons, armor, and potions. By advancing, you can increase the strength of your items to make them more useful.</p>
+                    <p><a href="detail2.html" class="click-here-link">Click Here</a> to get a detailed explanation about the items present</p>
+                </div>
+                <div class="command-info">
+                    <h3>+fight</h3>
+                    <p>The +fight command is used to initiate a boss battle. During the battle, you can use your sword, wear armor, and consume potions to help you defeat the boss.</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <footer id="contact">
-        <h2>Contact</h2>
-        <div class="join-button">
-            <a href="#" id="join-link" class="button button-secondary">Join Discord Server</a>
+        <div id="contact" class="section">
+            <h2>Contact</h2>
+            <div class="join-button">
+                <a href="#" id="join-link" class="button button-secondary">Join Discord Server</a>
+            </div>
         </div>
-        <!-- Admin Login Button -->
+
         <div class="login-section">
-            <button id="login-button" class="button button-primary">Admin Login</button>
+            <button id="login-button" class="button">Admin Login</button>
             <div id="admin-panel" style="display: none;">
                 <h3>Admin Panel</h3>
                 <form id="new-command-form">
                     <label for="command-name">Command Name:</label>
-                    <input type="text" id="command-name" required><br>
+                    <input type="text" id="command-name" name="command-name" required>
                     <label for="command-description">Description:</label>
-                    <textarea id="command-description" required></textarea><br>
-                    <button type="submit" class="button button-secondary">Add Command</button>
+                    <textarea id="command-description" name="command-description" required></textarea>
+                    <button type="submit" class="button">Add Command</button>
                 </form>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>

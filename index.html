@@ -28,61 +28,53 @@
             </ul>
         </div>
 
-        <div>
+        <div class="main-content">
             <h1>Boss Fighting</h1>
 
-            <div class="changing-text">
-                <span>Join the Boss Fighting Community!</span>
-            </div>
+            <div class="changing-text">Join the Boss Fighting Community!</div>
 
             <div class="add-bot-button">
                 <a href="https://discord.com/oauth2/authorize?client_id=1288503796321751080&scope=bot%20applications.commands&permissions=110016" id="add-bot-link" class="button button-primary">Add the Bot</a>
             </div>
-        </div>
 
-        <div id="introduction" class="section content-section">
-            <h2>Introduction</h2>
-            <p><strong>Boss Fighting</strong> is an interactive bot that provides a very immersive fighting experience with many Minecraft bosses and custom-made bosses. You can fight using your sword, wear armor to take less damage, and use potions of healing to recover from the damage done by the bosses.</p>
-        </div>
+            <div id="introduction" class="section content-section">
+                <h2>Introduction</h2>
+                <p><strong>Boss Fighting</strong> is an interactive bot that provides a very immersive fighting experience with many Minecraft bosses and custom-made bosses. You can fight using your sword, wear armor to take less damage, and use potions of healing to recover from the damage done by the bosses.</p>
+            </div>
 
-        <div id="fight-bosses" class="section content-section">
-            <h2>Fight Bosses</h2>
-            <p>There are two commands in this bot for you to use, they might be only two but they both have a wide variety of content in them so you'll not get bored while using these commands. Don't worry, we are working constantly to provide more diverse gameplay for you and add more commands in the future. These are the following commands:</p>
-            <ul>
-                <li>+advance</li>
-                <li>+fight</li>
-            </ul>
-            <a href="detail.html" class="click-here-link">Click Here</a> to get a detailed explanation about these.
-        </div>
+            <div id="fight-bosses" class="section content-section">
+                <h2>Fight Bosses</h2>
+                <p>There are two commands in this bot for you to use, they might be only two but they both have a wide variety of content in them so you'll not get bored while using these commands. Don't worry, we are working constantly to provide more diverse gameplay for you and add more commands in the future. These are the following commands:</p>
+                <ul>
+                    <li>+advance</li>
+                    <li>+fight</li>
+                </ul>
+                <p><a href="detail.html" class="click-here-link">Click Here</a> to get a detailed explanation about these.</p>
+            </div>
 
-        <div id="contact" class="section">
-            <h2>Contact</h2>
-            <div class="join-button">
-                <a href="#" id="join-link" class="button button-secondary">Join Discord Server</a>
+            <div id="contact" class="section">
+                <h2>Contact</h2>
+                <div class="join-button">
+                    <a href="#" id="join-link" class="button button-secondary">Join Discord Server</a>
+                </div>
+            </div>
+
+            <div class="login-section">
+                <button id="login-button" class="button">Admin Login</button>
+                <div id="admin-panel" style="display: none;">
+                    <h3>Admin Panel</h3>
+                    <form id="new-command-form">
+                        <label for="command-name">Command Name:</label>
+                        <input type="text" id="command-name" name="command-name" required>
+                        <label for="command-description">Description:</label>
+                        <textarea id="command-description" name="command-description" required></textarea>
+                        <button type="submit" class="button">Add Command</button>
+                    </form>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="login-section">
-            <button id="login-button" class="button button-primary">Admin Login</button>
-            <div id="admin-panel" style="display: none;">
-                <h3>Admin Panel</h3>
-                <form id="new-command-form">
-                    <label for="command-name">Command Name:</label>
-                    <input type="text" id="command-name" required><br>
-                    <label for="command-description">Description:</label>
-                    <textarea id="command-description" required></textarea><br>
-                    <button type="submit" class="button button-secondary">Add Command</button>
-                </form>
-            </div>
-        </div>
     <script src="script.js"></script>
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.querySelector('.loading-screen').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-            }, 2000); // 2 seconds delay, adjust as needed
-        });
-    </script>
 </body>
-</html> 
+</html>

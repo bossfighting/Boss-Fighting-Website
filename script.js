@@ -2,26 +2,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const sidebarLinks = document.querySelectorAll('.sidebar a');
-    const changingTextElement = document.querySelector('.changing-text span');
+    const changingTextElement = document.querySelector('.changing-text');
     const loginButton = document.getElementById('login-button');
     const adminPanel = document.getElementById('admin-panel');
     const commandForm = document.getElementById('new-command-form');
-    const loadingSpinner = document.createElement('div'); // Create a loading spinner element
+    const loadingScreen = document.querySelector('.loading-screen');
+    const content = document.getElementById('content');
     
-    // Loading spinner styles
-    loadingSpinner.classList.add('loading'); // Add loading class
-    loadingSpinner.innerHTML = '<div class="loading-spinner"></div>'; // Create spinner element
-    document.body.appendChild(loadingSpinner); // Append to the body
-    loadingSpinner.style.display = 'none'; // Initially hide the spinner
-    
-    // Text that changes at the top of the page
-    const textArray = [
-        "Join the Boss Fighting Community!",
-        "Become a Boss Slayer!",
-        "Conquer the Minecraft Bosses!",
-        "Experience Epic Boss Battles!"
-    ];
-    let currentIndex = 0;
+    // Show content and hide loading screen
+    setTimeout(() => {
+        loadingScreen.style.display = 'none';
+        content.style.display = 'block';
+    }, 2000); // 2 seconds loading time
 
     menuToggle.addEventListener('click', function() {
         sidebar.classList.toggle('active');
@@ -32,6 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
             sidebar.classList.remove('active');
         });
     });
+
+    // Text that changes at the top of the page
+    const textArray = [
+        "Join the Boss Fighting Community!",
+        "Become a Boss Slayer!",
+        "Conquer the Minecraft Bosses!",
+        "Experience Epic Boss Battles!"
+    ];
+    let currentIndex = 0;
 
     function changeText() {
         changingTextElement.style.opacity = '0';
@@ -52,16 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
     loginButton.addEventListener('click', function() {
         const password = prompt("Enter Admin Password:");
         
-        // Always "accept" the password and log them in
         if (password) {
-            loadingSpinner.style.display = 'flex'; // Show the loading spinner
-            
-            // Simulate loading time (you can adjust this duration)
-            setTimeout(() => {
-                adminPanel.style.display = "block";
-                loadingSpinner.style.display = 'none'; // Hide the loading spinner
-                loginButton.style.display = "none";
-            }, 1000); // 1 second loading time
+            adminPanel.style.display = "block";
+            loginButton.style.display = "none";
         }
     });
 
@@ -69,12 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
     commandForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Show alert trick message
         alert("You got tricked lol");
 
-        // Ask if they want to add the bot to their server
         if (confirm("Would you like to add our fun discord bot to your server?")) {
-            // Redirect to Discord authorization link
             window.location.href = "https://discord.com/oauth2/authorize?client_id=1288503796321751080&scope=bot%20applications.commands&permissions=110016";
         }
     });
@@ -92,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
-            // Close sidebar if it's open
             if (sidebar.classList.contains('active')) {
                 sidebar.classList.remove('active');
             }
