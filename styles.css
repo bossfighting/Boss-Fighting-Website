@@ -207,14 +207,11 @@ h2 {
   min-height: 60px;
 }
 
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0; transform: translateY(-10px); }
-  20%, 80% { opacity: 1; transform: translateY(0); }
-}
-
 .changing-text span {
   display: inline-block;
-  animation: fadeInOut 5s infinite;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 /* Login section styles */

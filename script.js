@@ -27,27 +27,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Text that changes at the top of the page
     const textArray = [
-        "Join the Boss Fighting Community!",
-        "Become a Boss Slayer!",
-        "Conquer the Minecraft Bosses!",
-        "Experience Epic Boss Battles!"
+        "Become A Hero",
+        "Become a Boss Slayer",
+        "Conquer the Minecraft  Bosses",
+        "Experience Epic Boss    Battles"
     ];
     let currentIndex = 0;
 
-    function changeText() {
-        changingTextElement.style.opacity = '0';
-        changingTextElement.style.transform = 'translateY(1rem)';
-        
-        setTimeout(() => {
-            currentIndex = (currentIndex + 1) % textArray.length;
-            changingTextElement.textContent = textArray[currentIndex];
-            changingTextElement.style.opacity = '1';
-            changingTextElement.style.transform = 'translateY(0)';
-        }, 500);
+    function typeText(text, index = 0) {
+        if (index < text.length) {
+            setTimeout(() => {
+                const span = document.createElement('span');
+                if (text[index] === ' ') {
+                    span.innerHTML = '&nbsp;';
+                } else {
+                    span.textContent = text[index];
+                }
+                changingTextElement.appendChild(span);
+                setTimeout(() => {
+                    span.style.opacity = '1';
+                    span.style.transform = 'translateY(0)';
+                }, 50);
+                typeText(text, index + 1);
+            }, 100);
+        } else {
+            setTimeout(changeText, 3000); // Wait for 3 seconds before changing text
+        }
     }
 
-    changeText();
-    setInterval(changeText, 5000);
+    function changeText() {
+        changingTextElement.innerHTML = ''; // Clear previous text
+        currentIndex = (currentIndex + 1) % textArray.length;
+        typeText(textArray[currentIndex]);
+    }
+
+    typeText(textArray[0]); // Start the animation with the first text
 
     // Admin Login (accepts any password)
     loginButton.addEventListener('click', function() {
