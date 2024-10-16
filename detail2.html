@@ -7,22 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="menu-toggle" class="menu-toggle"></div>
+    <div class="menu-toggle" id="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 
-    <div id="sidebar" class="sidebar">
-        <ul>
-            <li><a href="index.html#introduction">Introduction</a></li>
-            <li><a href="index.html#fight-bosses">Fight Bosses</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="detail.html" class="detail-link">About Commands</a></li>
-            <li><a href="detail2.html" class="detail-link">Detailed Game Info</a></li>
-        </ul>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html#introduction">Introduction</a></li>
+                <li><a href="index.html#fight-bosses">Fight Bosses</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="detail.html" class="detail-link">About Commands</a></li>
+                <li><a href="detail2.html" class="detail-link">Detailed Game Info</a></li>
+            </ul>
+        </nav>
     </div>
 
     <div class="main-content">
         <h1>Boss Fighting</h1>
 
-        <div class="changing-text">Explore the Boss Fighting Items</div>
+        <div class="changing-text">
+            Explore the Boss Fighting Items
+        </div>
 
         <div class="add-bot-button">
             <a href="https://discord.com/oauth2/authorize?client_id=1288503796321751080&scope=bot%20applications.commands&permissions=110016" id="add-bot-link" class="button button-primary">Add the Bot</a>
@@ -97,15 +107,15 @@
         </div>
 
         <div class="login-section">
-            <button id="login-button" class="button">Admin Login</button>
+            <button id="login-button">Admin Login</button>
             <div id="admin-panel" style="display: none;">
                 <h3>Admin Panel</h3>
                 <form id="new-command-form">
                     <label for="command-name">Command Name:</label>
-                    <input type="text" id="command-name" name="command-name" required>
+                    <input type="text" id="command-name" required>
                     <label for="command-description">Description:</label>
-                    <textarea id="command-description" name="command-description" required></textarea>
-                    <button type="submit" class="button">Add Command</button>
+                    <textarea id="command-description" required></textarea>
+                    <button type="submit">Add Command</button>
                 </form>
             </div>
         </div>

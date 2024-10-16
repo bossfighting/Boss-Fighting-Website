@@ -299,3 +299,65 @@ h2 {
     width: 100%;
   }
 }
+    body {
+      overflow-x: hidden;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      background-color: var(--primary);
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 998;
+    }
+
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.active {
+      transform: translateX(0);
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background-color: var(--secondary);
+        z-index: 999;
+        overflow-y: auto;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+    }

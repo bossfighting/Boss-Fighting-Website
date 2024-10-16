@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boss Fighting</title>
+    <title>Boss Fighting - Home</title>
     <link rel="stylesheet" href="styles.css">
-    <meta name="theme-color" content="#00ff2c">
-    <meta property="og:title" content="Boss Fighting Official">
-    <meta property="og:description" content="Official website for the most interactive and engaging bot in discord.">
-    <meta property="twitter:card" content="image.png">
-    <meta property="og:url" content="https://bossfighting.hec.to">
 </head>
 <body>
+    <div class="menu-toggle" id="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#fight-bosses">Fight Bosses</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="detail.html" class="detail-link">About Commands</a></li>
+                <li><a href="detail2.html" class="detail-link">Detailed Game Info</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="loading-screen">
         <div class="loading-content">
             <h1>Boss Fighting</h1>
@@ -21,18 +36,6 @@
     </div>
 
     <div id="content" style="display: none;">
-        <div id="menu-toggle" class="menu-toggle"></div>
-
-        <div id="sidebar" class="sidebar">
-            <ul>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#fight-bosses">Fight Bosses</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="detail.html" class="detail-link">About Commands</a></li>
-                <li><a href="detail2.html" class="detail-link">Detailed Game Info</a></li>
-            </ul>
-        </div>
-
         <div class="main-content">
             <h1>Boss Fighting</h1>
 
@@ -65,15 +68,15 @@
             </div>
 
             <div class="login-section">
-                <button id="login-button" class="button">Admin Login</button>
+                <button id="login-button">Admin Login</button>
                 <div id="admin-panel" style="display: none;">
                     <h3>Admin Panel</h3>
                     <form id="new-command-form">
                         <label for="command-name">Command Name:</label>
-                        <input type="text" id="command-name" name="command-name" required>
+                        <input type="text" id="command-name" required>
                         <label for="command-description">Description:</label>
-                        <textarea id="command-description" name="command-description" required></textarea>
-                        <button type="submit" class="button">Add Command</button>
+                        <textarea id="command-description" required></textarea>
+                        <button type="submit">Add Command</button>
                     </form>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menu-toggle');
+    const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
     const sidebarLinks = document.querySelectorAll('.sidebar a');
     const changingTextElement = document.querySelector('.changing-text');
     const loginButton = document.getElementById('login-button');
@@ -11,17 +12,31 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Show content and hide loading screen
     setTimeout(() => {
-        loadingScreen.style.display = 'none';
-        content.style.display = 'block';
+        if (loadingScreen) loadingScreen.style.display = 'none';
+        if (content) content.style.display = 'block';
     }, 2000); // 2 seconds loading time
 
-    menuToggle.addEventListener('click', function() {
+    function toggleSidebar() {
         sidebar.classList.toggle('active');
-    });
+        if (overlay) {
+            overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+        }
+        document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
+    }
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleSidebar);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', toggleSidebar);
+    }
 
     sidebarLinks.forEach(link => {
         link.addEventListener('click', function() {
-            sidebar.classList.remove('active');
+            if (window.innerWidth <= 768) {
+                toggleSidebar();
+            }
         });
     });
 
@@ -43,11 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     span.textContent = text[index];
                 }
-                changingTextElement.appendChild(span);
-                setTimeout(() => {
-                    span.style.opacity = '1';
-                    span.style.transform = 'translateY(0)';
-                }, 50);
+                if (changingTextElement) {
+                    changingTextElement.appendChild(span);
+                    setTimeout(() => {
+                        span.style.opacity = '1';
+                        span.style.transform = 'translateY(0)';
+                    }, 50);
+                }
                 typeText(text, index + 1);
             }, 100);
         } else {
@@ -56,33 +73,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function changeText() {
-        changingTextElement.innerHTML = ''; // Clear previous text
-        currentIndex = (currentIndex + 1) % textArray.length;
-        typeText(textArray[currentIndex]);
+        if (changingTextElement) {
+            changingTextElement.innerHTML = ''; // Clear previous text
+            currentIndex = (currentIndex + 1) % textArray.length;
+            typeText(textArray[currentIndex]);
+        }
     }
 
-    typeText(textArray[0]); // Start the animation with the first text
+    if (changingTextElement) {
+        typeText(textArray[0]); // Start the animation with the first text
+    }
 
     // Admin Login (accepts any password)
-    loginButton.addEventListener('click', function() {
-        const password = prompt("Enter Admin Password:");
-        
-        if (password) {
-            adminPanel.style.display = "block";
-            loginButton.style.display = "none";
-        }
-    });
+    if (loginButton) {
+        loginButton.addEventListener('click', function() {
+            const password = prompt("Enter Admin Password:");
+            
+            if (password && adminPanel) {
+                adminPanel.style.display = "block";
+                loginButton.style.display = "none";
+            }
+        });
+    }
 
     // Show trick message when form is submitted
-    commandForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        alert("You got tricked lol");
+    if (commandForm) {
+        commandForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            alert("You got tricked lol");
 
-        if (confirm("Would you like to add our fun discord bot to your server?")) {
-            window.location.href = "https://discord.com/oauth2/authorize?client_id=1288503796321751080&scope=bot%20applications.commands&permissions=110016";
-        }
-    });
+            if (confirm("Would you like to add our fun discord bot to your server?")) {
+                window.location.href = "https://discord.com/oauth2/authorize?client_id=1288503796321751080&scope=bot%20applications.commands&permissions=110016";
+            }
+        });
+    }
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -101,5 +126,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 sidebar.classList.remove('active');
             }
         });
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            sidebar.classList.remove('active');
+            if (overlay) overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
     });
 });
